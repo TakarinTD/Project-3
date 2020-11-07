@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuẩn hóa</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/chuanhoa.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Text Normalization</h1>
+        <div class="form-group row" id="row">
+            <div class="col-md-4">
+                <button class="ChuanHoaPage">Chuẩn hóa</button>
+            </div>
+            <div class="col-md-4">
+                <button class="XepHang">Xếp hạng</button>
+            </div>
+            <div class="col-md-4">
+                <button class="DuLieuChuan">Dữ liệu chuẩn</button>
+            </div>
+        </div>
+        <div>
+            <div>
+                <p>Văn bản cần chuẩn hóa:</p>
+            </div>
+            <div>
+                <textarea rows="4" cols="160" id="vanbanloi" placeholder="Nhập văn bản muốn chuẩn hóa"></textarea>
+            </div>
+        </div>
+        <button class="SubmitChuanHoa">Chuẩn hóa</button>
+        <div>
+            <div>
+                <p>Văn bản sau chuẩn hóa:</p>
+            </div>
+            <div>
+                <textarea rows="4" cols="160" id="vanbandung"></textarea>
+            </div>
+        </div>
+        <div>
+            <audio controls></audio>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-2">
+                <button class="KiemTra">Kiểm Tra</button>
+            </div>
+            <p> Độ chính xác: <input type="text" id="ketqua" value="10" size="1" readonly style="text-align:center"> /10</p>
+        </div>
+    </div>
+</body>
+</html>

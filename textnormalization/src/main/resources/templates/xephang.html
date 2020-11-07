@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xếp hạng</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/xephang.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Text Normalization</h1>
+        <div class="form-group row" id="row">
+            <div class="col-md-4">
+                <button class="ChuanHoaPage">Chuẩn hóa</button>
+            </div>
+            <div class="col-md-4">
+                <button class="XepHang">Xếp hạng</button>
+            </div>
+            <div class="col-md-4">
+                <button class="DuLieuChuan">Dữ liệu chuẩn</button>
+            </div>
+        </div>
+        <div>
+            <table id="table" class="table table-hover table-bordered">
+                <thead>
+                <tr>
+                    <th style="text-align:center;">Văn bản trước chuẩn hóa</th>
+                    <th style="text-align:center;">Văn bản sau chuẩn hóa</th>
+                    <th style="text-align:center;">Phát âm</th>
+                    <th style="text-align:center;">Đánh giá trên thang 10</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td style="text-align:center;">Nhập vb muốn truẩn hóa.</td>
+                    <td style="text-align:center;">Nhập văn bản muốn chuẩn hóa.</td>
+                    <td style="text-align:center;"><audio controls></audio></td>
+                    <td style="text-align:center;">10</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
