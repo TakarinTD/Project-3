@@ -1,0 +1,48 @@
+h1 {
+    text-align:center;
+}
+#row{
+ width: 1400px
+}
+.XepHang {
+	width: 120px;
+	height: 32px;
+	background: #72bb53;
+	color: #232323;
+	border-color: #232323;
+	border-width: 1px;
+	border-style: solid;
+	border-radius: 3px 3px 3px 3px;
+	font-family: "Helvetica";
+	font-weight: 400;
+	font-size: 14px;
+	text-align: center;
+}
+.ChuanHoaPage {
+	width: 120px;
+	height: 32px;
+	background: #ebebeb;
+	color: #232323;
+	border-color: #120639;
+	border-width: 1px;
+	border-style: solid;
+	border-radius: 3px 3px 3px 3px;
+	font-family: "Helvetica";
+	font-weight: 400;
+	font-size: 14px;
+	text-align: center;
+}
+.DuLieuChuan{
+	width: 120px;
+	height: 32px;
+	background: #ebebeb;
+	color: #232323;
+	border-color: #232323;
+	border-width: 1px;
+	border-style: solid;
+	border-radius: 3px 3px 3px 3px;
+	font-family: "Helvetica";
+	font-weight: 400;
+	font-size: 14px;
+	text-align: center;
+}

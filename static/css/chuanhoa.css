@@ -1,0 +1,152 @@
+h1 {
+    text-align:center;
+}
+#row{
+ width: 1500px
+}
+.ChuanHoaPage {
+	width: 120px;
+	height: 32px;
+	background: #72bb53;
+	color: #232323;
+	border-color: #120639;
+	border-width: 1px;
+	border-style: solid;
+	border-radius: 3px 3px 3px 3px;
+	font-family: "Helvetica";
+	font-weight: 400;
+	font-size: 14px;
+	text-align: center;
+}
+.KiemTra {
+	width: 120px;
+	height: 32px;
+	background: #ebebeb;
+	color: #232323;
+	border-color: #232323;
+	border-width: 1px;
+	border-style: solid;
+	border-radius: 3px 3px 3px 3px;
+	font-family: "Helvetica";
+	font-weight: 400;
+	font-size: 14px;
+	text-align: center;
+}
+.XepHang {
+	width: 120px;
+	height: 32px;
+	background: #ebebeb;
+	color: #232323;
+	border-color: #232323;
+	border-width: 1px;
+	border-style: solid;
+	border-radius: 3px 3px 3px 3px;
+	font-family: "Helvetica";
+	font-weight: 400;
+	font-size: 14px;
+	text-align: center;
+}
+.Label-1 {
+	width: 160px;
+	height: 24px;
+	color: #232323;
+	font-family: "Helvetica";
+	font-weight: 400;
+	font-size: 14px;
+	text-align: left;
+}
+.SubmitChuanHoa{
+	width: 120px;
+	height: 32px;
+	padding: 0px 10px 0px 10px;
+	background: #ebebeb;
+	color: #232323;
+	border-color: #232323;
+	border-width: 1px;
+	border-style: solid;
+	border-radius: 3px 3px 3px 3px;
+	font-family: "Helvetica";
+	font-weight: 400;
+	font-size: 14px;
+	text-align: center;
+}
+.Text-area-2 {
+	width: 817px;
+	height: 100px;
+	background: #ffffff;
+	color: #000000;
+	border-color: #232323;
+	border-width: 1px;
+	border-style: solid;
+	border-radius: 3px 3px 3px 3px;
+	font-family: "Helvetica";
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 1.3px;
+	text-align: left;
+}
+.Label-2 {
+	width: 160px;
+	height: 23px;
+	color: #232323;
+	font-family: "Helvetica";
+	font-weight: 400;
+	font-size: 14px;
+	text-align: left;
+}
+.DuLieuChuan{
+	width: 120px;
+	height: 32px;
+	padding: 0px 10px 0px 10px;
+	background: #ebebeb;
+	color: #232323;
+	border-color: #232323;
+	border-width: 1px;
+	border-style: solid;
+	border-radius: 3px 3px 3px 3px;
+	font-family: "Helvetica";
+	font-weight: 400;
+	font-size: 14px;
+	text-align: center;
+}
+.Text-Input-2 {
+	width: 32px;
+	height: 27px;
+	padding: 4px 8px 4px 8px;
+	background: #ffffff;
+	color: #000000;
+	border-color: #232323;
+	border-width: 1px;
+	border-style: solid;
+	border-radius: 3px 3px 3px 3px;
+	font-family: "Helvetica";
+	font-weight: 400;
+	font-size: 14px;
+	text-align: left;
+}
+.Label-3 {
+	width: 109px;
+	height: 16px;
+	color: #232323;
+	font-family: "Helvetica";
+	font-weight: 400;
+	font-size: 14px;
+	text-align: left;
+}
+.Label-4 {
+	width: 20px;
+	height: 19px;
+	color: #232323;
+	font-family: "Helvetica";
+	font-weight: 400;
+	font-size: 14px;
+	text-align: left;
+}
+.Audio {
+	width: 200px;
+	height: 30px;
+	background: #e6e6e6;
+	border-color: #7a7a7a;
+	border-width: 1px;
+	border-style: solid;
+}
