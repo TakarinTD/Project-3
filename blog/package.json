@@ -1,0 +1,46 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "beautiful": "lint-staged",
+    "start": "nodemon --inspect src/index.js",
+    "watch": "node-sass --watch src/resources/scss/ --output src/public/css/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TakarinTD/Project-3.git"
+  },
+  "author": "Nguyen Duy Hoai Lam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TakarinTD/Project-3/issues"
+  },
+  "homepage": "https://github.com/TakarinTD/Project-3#readme",
+  "lint-staged": {
+    "src/**/*.{js,json,scss}": "prettier --single-quote --trailing-comma all --tab-width 4 --write"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "express-handlebars": "^5.2.0",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.11.4",
+    "mongoose-delete": "^0.5.3",
+    "mongoose-slug-generator": "^1.0.4",
+    "morgan": "^1.10.0",
+    "node-sass": "^4.14.1",
+    "nodemon": "^2.0.4",
+    "prettier": "^2.0.5"
+  }
+}
