@@ -4,7 +4,7 @@ const morgan = require('morgan');
 const methodOverride = require('method-override');
 const handlebars = require('express-handlebars');
 
-const route = require('./routes');
+const route = require('../server/routes');
 const db = require('./config/db');
 
 // Connect to DB
