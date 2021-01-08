@@ -1,5 +1,6 @@
 import {GET_ALL, DELETE, CREATE, UPDATE, OPEN_MODAL, CLOSE_MODAL} from './../../constants/index'
 import * as api from "./../../apis/callApi"
+
 export const getAllItems = () => async(dispatch) => {
     try {
         dispatch({type : GET_ALL, items : []})
@@ -8,16 +9,29 @@ export const getAllItems = () => async(dispatch) => {
     }
 }
 
-export const expandCallAPI = (item) => async(dispatch) => {
+export const sendMailExcel = async(data2excel) => {
     try {
-        let data2req = {sentenceWithAbbrev : item.input}
-        const {data} = await api.expandWordApi(data2req)
-        item.output = data.expand
-        if(item.expected === data.expand) item.result = 'pass'
-        else item.result = 'fail'
-        dispatch({type : UPDATE, item : item})
+        const {data} = await api.postData2Excel(data2excel)
+        console.log(data)
     } catch (error) {
         console.log(error.message)
+    }
+
+}
+export const expandCallAPI = (items) => async(dispatch) => {
+    for(let item of items ){
+        try {
+            let data2req = {sentenceWithAbbrev : item.input ? item.input : ''}
+            const {data} = await api.expandWordApi(data2req)
+            item.output = data.expand
+            if(item.expected.trim() === item.output.trim()) item.result = 'pass'
+            else item.result = 'fail'
+            dispatch({type : UPDATE, item : item})
+        } catch (error) {
+            item.output = "Lỗi xử lý"
+            item.result = 'fail'
+            dispatch({type : UPDATE, item : item})
+        }
     }
 }
 

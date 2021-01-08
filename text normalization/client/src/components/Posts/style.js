@@ -14,7 +14,7 @@ export default makeStyles((theme) => ({
     width: '40%',
   },
   button : {
-    width : '20%',
+    width : '60%',
     fontSize : '20px',
     marginRight : "5%",
     height : "50px",

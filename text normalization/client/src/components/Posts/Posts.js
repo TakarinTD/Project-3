@@ -2,9 +2,9 @@ import React from 'react';
 import {Button, Card, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TablePagination, TableRow} 
 from "@material-ui/core"
 import {useSelector, useDispatch} from 'react-redux'
-import {PlayArrow} from "@material-ui/icons"
+import {PlayArrow, DeleteOutline} from "@material-ui/icons"
 import useStyles from './style';
-import {expandCallAPI} from "./../../redux/main/actions"
+import {expandCallAPI, getAllItems, sendMailExcel} from "./../../redux/main/actions"
 
 const columns = [
   { id: 'input', label: 'INPUT', minWidth: 100 },
@@ -13,9 +13,6 @@ const columns = [
   { id: 'result', label: 'RESULT', minWidth: 80 },
 ];
 
-const convert = (num) => {
-  return Math.round((num + Number.EPSILON) * 100) / 100
-}
 
 export default function StickyHeadTable() {
   const classes = useStyles();
@@ -34,18 +31,45 @@ export default function StickyHeadTable() {
     if (i.result === 'pass') pass += 1
     else if(i.result === 'fail') fail += 1
   })
-  const text1 = `${pass}/${total} (${total !== 0 ? convert(pass/total)*100 : 0} %)` 
-  const text2 = `${fail}/${total} (${total !== 0 ? convert(fail/total)*100 : 0} %)` 
+  const text1 = `${pass}/${total} (${total !== 0 ? (pass*100/total).toFixed(1) : 0} %)` 
+  const text2 = `${fail}/${total} (${total !== 0 ? (fail*100 /total).toFixed(1): 0} %)` 
   const handleChangeRowsPerPage = (event) => {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
 
-  const handleCallApi = (e) => {
-    e.preventDefault()
-    items.forEach((item) => {
-      if(item.output === '') dispatch(expandCallAPI(item))
+  const handleCallSendEmail = () => {
+    let pass = 0
+    let fail = 0
+    
+    items.forEach((i) => {
+      if (i.result === 'pass') pass += 1
+      else if(i.result === 'fail') fail += 1
     })
+    let text1 = `${pass}/${total} (${total !== 0 ? (pass*100/total).toFixed(1) : 0} %)` 
+    let text2 = `${fail}/${total} (${total !== 0 ? (fail*100 /total).toFixed(1): 0} %)` 
+
+    let data2excel = {
+      items : items,
+      pass : text1,
+      fail : text2
+    }
+    sendMailExcel(data2excel)
+  }
+
+  const handleCallApi = async (e) => {
+    e.preventDefault()
+    let reqs = []
+    items.forEach((item) => {if(item.result === '') reqs.push(item)})
+    if(reqs.length) {
+      await dispatch(expandCallAPI(reqs))
+      handleCallSendEmail()
+    }
+  }
+
+  const resetItems = (e) => {
+    e.preventDefault()
+    dispatch(getAllItems())
   }
 
   return (
@@ -106,7 +130,10 @@ export default function StickyHeadTable() {
             </TableRow>
           </TableBody>
         </Table>
-        <Button onClick = {handleCallApi} className={classes.button} variant="outlined" color="primary" endIcon = {<PlayArrow/>}>Run</Button>
+        <div>
+          <Button onClick = {resetItems} className={classes.button} variant="outlined" color="secondary" endIcon = {<DeleteOutline/>}>Clear</Button>
+          <Button onClick = {handleCallApi} className={classes.button} variant="outlined" color="primary" endIcon = {<PlayArrow/>}>Run</Button>
+        </div>
       </Card>
     </Paper>
   );
