@@ -5,6 +5,10 @@ const axios = require('axios')
 const { loginValidate, registerValidate } = require('../validations/auth');
 const authController = require('../controllers/auth');
 const Excel = require('exceljs')
+const GoogleSpreadsheet = require("google-spreadsheet")
+const {promisify} = require("util")
+
+const creds = require("./client_secret.json")
 
 const {createTransport} =  require('nodemailer');
 
@@ -146,7 +150,7 @@ let initRouter = (app) => {
     router.post("/data2excel", async(req, res) => {
         try {
               const buffer =  await bufferExcel(req.body.items, req.body.pass, req.body.fail)
-              const filename = 'text_normalization.xlsx';
+              const filename = 'text_nomarlization.xlsx';
               const transporter = createTransport({
                 host: process.env.MAIL_HOST,
                 port: process.env.MAIL_PORT,
@@ -159,9 +163,9 @@ let initRouter = (app) => {
             const mailOptions = {
                 from: process.env.MAIL_PUBLIC_ME,
                 to: [process.env.MAIL_SEND],
-                subject: 'Text Normalization App: Kết quả chạy ứng dụng :))',
-                html: `<h2> Kết quả Text Normalization</h2>
-                        <h3>Đọc file để xem kết quả :D</h3>`,
+                subject: 'Text nomarlization: Kết quả kiểm tra',
+                html: `<h2> Bạn nhận được Email vì đã sử dụng ứng dụng text nomarlization</h2>
+                        <h3>Đọc file để xem kết quả</h3>`,
                 attachments: [
                     {
                         filename,
@@ -172,11 +176,36 @@ let initRouter = (app) => {
                 ],
             };
             await transporter.sendMail(mailOptions);
-            return res.status(200).send("OKKKKK:))")
+            return res.status(200).send("OKKKK:))")
         } catch (error) {
             return res.status(500).send("Lỗi rồi :((")
         }
     })
+    router.post("/get-data-from-url", async(req, res) => {
+      let url = req.body.url
+      let start_id = url.indexOf("/d/") + 3
+      let end_id = url.indexOf("/edit")
+      try {
+          let id = url.slice(start_id, end_id)
+          console.log(id)
+          const doc = new GoogleSpreadsheet(id)
+          await promisify(doc.useServiceAccountAuth)(creds)
+          const info = await promisify(doc.getInfo)()
+          const sheet = info.worksheets[0]
+          const rows = await promisify(sheet.getRows)({
+            offset : 1
+          })
+          let data2res = []
+          rows.forEach(row => {
+            if(row.input && row.expected) data2res.push({input : row.input, expected : row.expected })
+          })
+          return res.status(200).send(data2res)
+      } catch (error) {
+          return res.status(500).send("lỗi đọc url :))")
+      }
+    })
+
+
     return app.use('/', router)
 }
 

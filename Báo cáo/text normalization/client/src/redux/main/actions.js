@@ -1,6 +1,16 @@
 import {GET_ALL, DELETE, CREATE, UPDATE, OPEN_MODAL, CLOSE_MODAL} from './../../constants/index'
 import * as api from "./../../apis/callApi"
 
+
+export const addDataFromUrl = async(url) => {
+    try {
+        const {data} = await api.addDataFromUrl(url) 
+        return data
+    } catch (error) {
+        console.log(error.message)
+    }
+}
+
 export const getAllItems = () => async(dispatch) => {
     try {
         dispatch({type : GET_ALL, items : []})

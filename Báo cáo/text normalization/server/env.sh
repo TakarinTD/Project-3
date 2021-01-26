@@ -9,10 +9,10 @@ MONGO_PASSWORD=''
 MAIL_HOST=smtp.gmail.com
 MAIL_PORT=587
 
-MAIL_PUBLIC_ME=nguyenduyhoailam1999@gmail.com
-PASS_PUBLIC_ME=15061999
+MAIL_PUBLIC_ME=hvkcbg@gmail.com
+PASS_PUBLIC_ME=ngohuusoncbg
 
-MAIL_SEND=nguyenlam99txtb@gmail.com
+MAIL_SEND=hvkcbg1@gmail.com
 
 JWT_SECRET_KEY=
 JWT_EXPIRES_TIME=

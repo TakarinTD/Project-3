@@ -20,6 +20,7 @@
     "express": "^4.17.1",
     "express-mung": "^0.5.1",
     "express-validation": "^3.0.6",
+    "google-spreadsheet": "^2.0.3",
     "helmet": "^3.23.3",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.25",

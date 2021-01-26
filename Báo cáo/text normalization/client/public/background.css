@@ -9,3 +9,7 @@ html { height: 100%; background: radial-gradient(at center bottom, rgb(27, 39, 5
   0% { transform: translateY(0px); }
   100% { transform: translateY(-2000px); }
 }
+body{
+  height : 100%;
+  overflow: hidden;
+}
